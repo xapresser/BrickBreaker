@@ -1,4 +1,12 @@
-﻿  game.cpp
+﻿  Brick.cpp
+  Bullet.cpp
+  EventTurn.cpp
+  GameOver.cpp
+  GameStart.cpp
+  Points.cpp
+  Reticle.cpp
+  Shooter.cpp
+  Generating Code...
 libdragonfly-x64-debug.lib(GameManager.obj) : warning LNK4099: PDB '' was not found with 'libdragonfly-x64-debug.lib(GameManager.obj)' or at ''; linking object as if no debug info
 libdragonfly-x64-debug.lib(utility.obj) : warning LNK4099: PDB '' was not found with 'libdragonfly-x64-debug.lib(utility.obj)' or at ''; linking object as if no debug info
 libdragonfly-x64-debug.lib(LogManager.obj) : warning LNK4099: PDB '' was not found with 'libdragonfly-x64-debug.lib(LogManager.obj)' or at ''; linking object as if no debug info

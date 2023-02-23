@@ -143,7 +143,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Brick.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="EventTurn.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="GameOver.cpp" />
+    <ClCompile Include="GameStart.cpp" />
+    <ClCompile Include="Points.cpp" />
+    <ClCompile Include="Reticle.cpp" />
+    <ClCompile Include="Shooter.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
