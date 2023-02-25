@@ -12,6 +12,7 @@ int Reticle::eventHandler(const df::Event* p_e) {
         if (p_mouse_event->getMouseAction() == df::MOVED) {
             // Change location to new mouse position.
             setPosition(p_mouse_event->getMousePosition());
+            //LM.writeLog("%d", p_mouse_event->getMousePosition());
             return 1;
         }
     }

@@ -27,6 +27,7 @@ void Shooter::fire(df::Vector target) {
 		nextTurn();
 		isFiring = false;
 	}
+	//LM.writeLog("%d", getPosition());
 }
 
 void Shooter::nextTurn() {
@@ -48,11 +49,12 @@ int Shooter::eventHandler(const df::Event* p_e) {
 Shooter::Shooter() {
 	registerInterest(df::MSE_EVENT);
 	setType("Shooter");
+	//temp sprite
 	setSprite("ship");
 	bullets = 1;
 	fire_cooldown = 100;
 	isFiring = false;
-	df::Vector p(WM.getBoundary().getHorizontal() / 2, 40);
+	df::Vector p(WM.getBoundary().getHorizontal() / 2, 50);
 	setPosition(p);
 	p_reticle = new Reticle();
 	p_reticle->draw();

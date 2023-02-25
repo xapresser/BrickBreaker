@@ -18,14 +18,14 @@ window_vertical_pixels:900,
 
 # Window dimensions in characters.
 window_horizontal_chars:50,
-window_vertical_chars:50,
+window_vertical_chars:55,
 
 # Font scale multiplier (2.0 is "normal", 1.0 for "square").
 font_scale:2.0,
 
 # Window background color. 
 # (Choices: black, red, green, yellow, blue, magenta, cyan, white).
-window_background_color:white,
+window_background_color:black,
 
 # Target time for 1 game loop (in milliseconds).
 frame_time:33,

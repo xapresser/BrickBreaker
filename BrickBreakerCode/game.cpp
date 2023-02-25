@@ -9,6 +9,7 @@
 #include "Vector.h"
 #include "WorldManager.h"
 #include "Windows.h"
+#include "ResourceManager.h"
 
 void startUp();
 
@@ -26,6 +27,8 @@ int main(int argc, char* argv[]) {
 
     // Show splash screen.
     df::splash();
+
+    RM.loadSprite("sprites/ship-spr.txt", "ship");
 
     startUp();
 
