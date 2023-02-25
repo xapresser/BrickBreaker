@@ -5,7 +5,8 @@
 class Bullet : public df::Object {
 private:
 	void hit(const df::EventCollision* p_c);
-	void bounce();
+	void horizontalBounce();
+	void verticalBounce();
 public:
 	Bullet(df::Vector shooter_pos);
 	int eventHandler(const df::Event* p_e) override;

@@ -29,6 +29,7 @@ int main(int argc, char* argv[]) {
     df::splash();
 
     RM.loadSprite("sprites/ship-spr.txt", "ship");
+    RM.loadSprite("sprites/bullet-spr.txt", "ball");
 
     startUp();
 
