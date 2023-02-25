@@ -5,6 +5,12 @@
 // Engine includes.
 #include "GameManager.h"
 #include "LogManager.h"
+#include "Shooter.h"
+#include "Vector.h"
+#include "WorldManager.h"
+#include "Windows.h"
+
+void startUp();
 
 int main(int argc, char* argv[]) {
 
@@ -21,8 +27,22 @@ int main(int argc, char* argv[]) {
     // Show splash screen.
     df::splash();
 
+    startUp();
+
     // Shut everything down.
     GM.shutDown();
     return 0;
 }
 
+void startUp() {
+    //df::Vector corner(0, 0);
+    //df::Box world_boundary(corner, 20, 30);
+    //WM.setBoundary(world_boundary);
+    //df::Box view(corner, 20, 30);
+    //WM.setView(view);
+
+    new Shooter;
+    GM.run();
+    //LM.writeLog("hewwo");
+    Sleep(1000);
+}

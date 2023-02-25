@@ -1,6 +1,26 @@
-11:52:32    0 ****************************************************
-11:52:32    0 ** Dragonfly version 4.18 **
-11:52:32    0 ** Game engine started **
-11:52:32    0 ****************************************************
-11:52:35   90 ****************************************************
-11:52:35   90 ** Game engine stopped **
+10:59:20    0 ****************************************************
+10:59:20    0 ** Dragonfly version 4.18 **
+10:59:20    0 ** Game engine started **
+10:59:20    0 ****************************************************
+10:59:21   18 GameManager::run(): Can't keep up! frame_time 33 ms, split 49 ms
+10:59:21   21 GameManager::run(): Can't keep up! frame_time 33 ms, split 35 ms
+10:59:21   23 GameManager::run(): Can't keep up! frame_time 33 ms, split 37 ms
+10:59:21   24 GameManager::run(): Can't keep up! frame_time 33 ms, split 37 ms
+10:59:21   25 GameManager::run(): Can't keep up! frame_time 33 ms, split 35 ms
+10:59:21   26 GameManager::run(): Can't keep up! frame_time 33 ms, split 34 ms
+10:59:21   27 GameManager::run(): Can't keep up! frame_time 33 ms, split 35 ms
+10:59:21   28 GameManager::run(): Can't keep up! frame_time 33 ms, split 36 ms
+10:59:21   29 GameManager::run(): Can't keep up! frame_time 33 ms, split 34 ms
+10:59:21   30 GameManager::run(): Can't keep up! frame_time 33 ms, split 36 ms
+10:59:22   61 GameManager::run(): Can't keep up! frame_time 33 ms, split 34 ms
+10:59:22   62 GameManager::run(): Can't keep up! frame_time 33 ms, split 38 ms
+10:59:22   66 GameManager::run(): Can't keep up! frame_time 33 ms, split 35 ms
+10:59:22   67 GameManager::run(): Can't keep up! frame_time 33 ms, split 37 ms
+10:59:23   68 GameManager::run(): Can't keep up! frame_time 33 ms, split 40 ms
+10:59:23   69 GameManager::run(): Can't keep up! frame_time 33 ms, split 51 ms
+10:59:23   77 GameManager::run(): Can't keep up! frame_time 33 ms, split 45 ms
+10:59:23   80 GameManager::run(): Can't keep up! frame_time 33 ms, split 35 ms
+10:59:23   90 mouse
+10:59:23   90 shooter spawned in
+10:59:27   72 ****************************************************
+10:59:27   72 ** Game engine stopped **

@@ -25,7 +25,7 @@ font_scale:2.0,
 
 # Window background color. 
 # (Choices: black, red, green, yellow, blue, magenta, cyan, white).
-window_background_color:black,
+window_background_color:green,
 
 # Target time for 1 game loop (in milliseconds).
 frame_time:33,
