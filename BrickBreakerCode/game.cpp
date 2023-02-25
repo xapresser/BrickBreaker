@@ -39,14 +39,7 @@ int main(int argc, char* argv[]) {
 }
 
 void startUp() {
-    //df::Vector corner(0, 0);
-    //df::Box world_boundary(corner, 20, 30);
-    //WM.setBoundary(world_boundary);
-    //df::Box view(corner, 20, 30);
-    //WM.setView(view);
-
     new Shooter;
     GM.run();
-    //LM.writeLog("hewwo");
     Sleep(1000);
 }

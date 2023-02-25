@@ -11,7 +11,6 @@ void Shooter::mouse(const df::EventMouse* p_mouse_event) {
 	if ((p_mouse_event->getMouseAction() == df::CLICKED) && (p_mouse_event->getMouseButton() == df::Mouse::LEFT)) {
 		isFiring = true;
 		aim = p_mouse_event->getMousePosition();
-		//fire(p_mouse_event->getMousePosition());
 		//Change this so has limited angle range and can’t affect depth range
 	}
 }
