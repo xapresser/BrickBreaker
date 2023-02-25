@@ -5,6 +5,8 @@
 #include "EventTurn.h"
 #include "EventView.h"
 
+
+
 void Bullet::hit(const df::EventCollision* p_c) {
 	if ((p_c->getObject1()->getType() == "Brick") || (p_c->getObject2()->getType() == "Brick")) {
 		if (p_c->getPosition().getY() != getDirection().getY()) {
