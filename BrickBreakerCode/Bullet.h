@@ -9,5 +9,6 @@ private:
 	void verticalBounce();
 public:
 	Bullet(df::Vector shooter_pos);
+	~Bullet();
 	int eventHandler(const df::Event* p_e) override;
 };

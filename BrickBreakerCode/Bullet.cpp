@@ -2,6 +2,8 @@
 #include "LogManager.h"
 #include "DisplayManager.h"
 #include "WorldManager.h"
+#include "EventTurn.h"
+#include "EventView.h"
 
 void Bullet::hit(const df::EventCollision* p_c) {
 	if ((p_c->getObject1()->getType() == "Brick") || (p_c->getObject2()->getType() == "Brick")) {
@@ -47,11 +49,21 @@ int Bullet::eventHandler(const df::Event* p_e) {
 	return(0);
 }
 
+Bullet::~Bullet() {
+	LM.writeLog("destroying a bullet");
+	if (WM.objectsOfType("Bullet").getCount()==1) {
+		LM.writeLog("list is empty");
+		EventTurn turn;
+		WM.onEvent(&turn);
+		df::EventView ev("Turn", -1, true);
+		WM.onEvent(&ev);
+	}
+}
+
 Bullet::Bullet(df::Vector shooter_pos) {
 	setSprite("ball");
 	setType("Bullet");
-	setSolidness(df::SOFT);
-	df::Vector p(shooter_pos.getX(), shooter_pos.getY() + 7);
+	df::Vector p(shooter_pos.getX(), shooter_pos.getY());
 	setPosition(p);
 	setSpeed(1);
 	LM.writeLog("bullet");

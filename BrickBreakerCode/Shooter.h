@@ -7,9 +7,12 @@ private:
 	Reticle* p_reticle;
 	bool isFiring;
 	int bullets;
+	int shotBullets;
 	int fire_cooldown;
+	int fire_countdown;
+	df::Vector aim;
 	void mouse(const df::EventMouse* p_mouse_event);
-	void fire(df::Vector target);
+	void fire();
 	void nextTurn();
 public:
 	Shooter();

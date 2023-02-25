@@ -5,36 +5,40 @@
 #include "Bullet.h"
 #include "Windows.h"
 #include "LogManager.h"
+#include "EventStep.h"
 
 void Shooter::mouse(const df::EventMouse* p_mouse_event) {
 	if ((p_mouse_event->getMouseAction() == df::CLICKED) && (p_mouse_event->getMouseButton() == df::Mouse::LEFT)) {
-		fire(p_mouse_event->getMousePosition());
+		isFiring = true;
+		aim = p_mouse_event->getMousePosition();
+		//fire(p_mouse_event->getMousePosition());
 		//Change this so has limited angle range and can’t affect depth range
 	}
 }
 
-void Shooter::fire(df::Vector target) {
-	if (!isFiring) {
-		isFiring = true;
-		for (int i = bullets; i > 0; i--) {
-			df::Vector v = target - getPosition();
-			v.normalize();
-			v.scale(1);
-			Bullet* p = new Bullet(getPosition());
-			p->setVelocity(v);
-			Sleep(fire_cooldown);
+void Shooter::fire() {
+	if (isFiring) {
+		fire_countdown--;
+		if (fire_countdown <= 0) {
+			if (shotBullets < bullets) {
+				df::Vector v = aim - getPosition();
+				v.normalize();
+				v.scale(1);
+				Bullet* p = new Bullet(getPosition());
+				p->setVelocity(v);
+				shotBullets++;
+			}
+			else {
+				isFiring = false;
+			}
+			fire_countdown = fire_cooldown;
 		}
-		nextTurn();
-		isFiring = false;
 	}
-	//LM.writeLog("%d", getPosition());
 }
 
 void Shooter::nextTurn() {
-	EventTurn turn;
-	WM.onEvent(&turn);
-	df::EventView ev("Turn", -1, true);
-	WM.onEvent(&ev);
+	bullets++;
+	shotBullets = 0;
 }
 
 int Shooter::eventHandler(const df::Event* p_e) {
@@ -43,16 +47,29 @@ int Shooter::eventHandler(const df::Event* p_e) {
 		mouse(p_mouse_event);
 		return 1;
 	}
+	if (p_e->getType() == df::STEP_EVENT) {
+		fire();
+		return(1);
+	}
+	if (p_e->getType() == TURN_EVENT) {
+		nextTurn();
+		return(1);
+	}
 	return(0);
 }
 
 Shooter::Shooter() {
 	registerInterest(df::MSE_EVENT);
+	setSolidness(df::SOFT);
 	setType("Shooter");
 	//temp sprite
 	setSprite("ship");
+	registerInterest(df::STEP_EVENT);
+	registerInterest(TURN_EVENT);
 	bullets = 1;
-	fire_cooldown = 100;
+	shotBullets = 0;
+	fire_cooldown = 5;
+	fire_countdown = fire_cooldown;
 	isFiring = false;
 	df::Vector p(WM.getBoundary().getHorizontal() / 2, 50);
 	setPosition(p);
