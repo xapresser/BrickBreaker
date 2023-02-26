@@ -30,6 +30,7 @@ int main(int argc, char* argv[]) {
 
     RM.loadSprite("sprites/ship-spr.txt", "ship");
     RM.loadSprite("sprites/bullet-spr.txt", "ball");
+    RM.loadSprite("sprites/brick-spr.txt", "brick");
 
     startUp();
 
