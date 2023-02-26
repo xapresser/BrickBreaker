@@ -71,18 +71,18 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\clear\OneDrive\Desktop\BrickBreaker\SFML-2.5\include;C:\Users\clear\OneDrive\Desktop\BrickBreaker\dragonfly\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\clear\OneDrive\Desktop\BrickBreaker\SFML-2.5\lib;C:\Users\clear\OneDrive\Desktop\BrickBreaker\dragonfly\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\utsav\Documents\GitHub\BrickBreaker\SFML-2.5\include;C:\Users\utsav\Documents\GitHub\BrickBreaker\dragonfly\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\utsav\Documents\GitHub\BrickBreaker\SFML-2.5\lib;C:\Users\utsav\Documents\GitHub\BrickBreaker\dragonfly\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Users\clear\OneDrive\Desktop\BrickBreaker\SFML-2.5\include;C:\Users\clear\OneDrive\Desktop\BrickBreaker\dragonfly\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\utsav\Documents\GitHub\BrickBreaker\SFML-2.5\include;C:\Users\utsav\Documents\GitHub\BrickBreaker\dragonfly\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\clear\OneDrive\Desktop\BrickBreaker\SFML-2.5\include;C:\Users\clear\OneDrive\Desktop\BrickBreaker\dragonfly\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\clear\OneDrive\Desktop\BrickBreaker\SFML-2.5\lib;C:\Users\clear\OneDrive\Desktop\BrickBreaker\dragonfly\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\utsav\Documents\GitHub\BrickBreaker\SFML-2.5\include;C:\Users\utsav\Documents\GitHub\BrickBreaker\dragonfly\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\utsav\Documents\GitHub\BrickBreaker\SFML-2.5\lib;C:\Users\utsav\Documents\GitHub\BrickBreaker\dragonfly\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Users\clear\OneDrive\Desktop\BrickBreaker\SFML-2.5\include;C:\Users\clear\OneDrive\Desktop\BrickBreaker\dragonfly\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\utsav\Documents\GitHub\BrickBreaker\SFML-2.5\include;C:\Users\utsav\Documents\GitHub\BrickBreaker\dragonfly\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
