@@ -152,8 +152,8 @@
     <ClCompile Include="Hitpoints.cpp" />
     <ClCompile Include="Points.cpp" />
     <ClCompile Include="Reticle.cpp" />
-    <ClCompile Include="Board.cpp" />
     <ClCompile Include="Shooter.cpp" />
+    <ClCompile Include="Spawner.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

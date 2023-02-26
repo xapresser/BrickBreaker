@@ -79,8 +79,8 @@ Bullet::~Bullet() {
 		//turn ends, sends out eventturn
 		EventTurn turn;
 		WM.onEvent(&turn);
-		df::EventView ev("Turn", -1, true);
-		WM.onEvent(&ev);
+		//df::EventView ev("Turn", -1, true);
+		//WM.onEvent(&ev);
 	}
 }
 
@@ -90,6 +90,6 @@ Bullet::Bullet(df::Vector shooter_pos) {
 	setSolidness(df::SOFT);
 	df::Vector p(shooter_pos.getX(), shooter_pos.getY());
 	setPosition(p);
-	setSpeed(1);
+	setSpeed(2);
 	LM.writeLog("bullet");
 }

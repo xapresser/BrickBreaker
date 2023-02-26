@@ -26,6 +26,9 @@ void Brick::moveDown() {
     WM.moveObject(this, v);
     WM.moveObject(hp, v);
     newRow();
+    if (v.getY() > 45) {
+       //end game you die call gameover class here later once have that set up
+    }
 }
 
 void Brick::newRow() {
