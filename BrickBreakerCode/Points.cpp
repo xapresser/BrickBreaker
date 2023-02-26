@@ -6,7 +6,6 @@ int Points::eventHandler(const df::Event* p_e) {
 	if (df::ViewObject::eventHandler(p_e)) {
 		return 1;
 	}
-	// If step, increment score every second (30 steps).
 	if (p_e->getType() == TURN_EVENT) {
 		setValue(getValue() + 1);
 		return 1;
@@ -16,7 +15,7 @@ int Points::eventHandler(const df::Event* p_e) {
 }
 
 Points::Points() {
-	setLocation(df::TOP_RIGHT);
+	setLocation(df::BOTTOM_RIGHT);
 	setViewString(POINTS_STRING);
 	setColor(df::YELLOW);
 	registerInterest(TURN_EVENT);

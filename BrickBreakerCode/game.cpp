@@ -12,6 +12,7 @@
 #include "ResourceManager.h"
 #include "Brick.h"
 #include "DisplayManager.h"
+#include "Points.h"
 
 void startUp();
 
@@ -44,5 +45,11 @@ int main(int argc, char* argv[]) {
 void startUp() {
     new Shooter;
     new Brick;
+    new Brick;
+    new Brick;
+    new Brick;
+    new Brick;
+    new Brick;
+    new Points;
     GM.run();
 }

@@ -7,6 +7,18 @@
 
 void Bullet::hit(const df::EventCollision* p_c) {
 	if ((p_c->getObject1()->getType() == "Brick") || (p_c->getObject2()->getType() == "Brick")) {
+		//code so that when all bricks are destroyed it'll automatically destroy all bullets so dont have to sit through animation of them bouncing down
+		//currently doesn't work
+		/*df::ObjectList bricks = WM.objectsOfType("Brick");
+		if (bricks.getCount() == 1) {
+			LM.writeLog("list is empty");
+			df::ObjectList bullets = WM.objectsOfType("Bullet");
+			df::ObjectListIterator li(&bullets);
+			while (!li.isDone()) {
+				WM.markForDelete(li.currentObject());
+				li.next();
+			}
+		}*/
 		if (p_c->getPosition().getY() != getDirection().getY()) {
 			verticalBounce();
 		}
@@ -52,7 +64,6 @@ int Bullet::eventHandler(const df::Event* p_e) {
 Bullet::~Bullet() {
 	LM.writeLog("destroying a bullet");
 	if (WM.objectsOfType("Bullet").getCount()==1) {
-		LM.writeLog("list is empty");
 		EventTurn turn;
 		WM.onEvent(&turn);
 		df::EventView ev("Turn", -1, true);
