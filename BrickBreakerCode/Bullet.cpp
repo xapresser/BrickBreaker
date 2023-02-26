@@ -63,6 +63,7 @@ Bullet::~Bullet() {
 Bullet::Bullet(df::Vector shooter_pos) {
 	setSprite("ball");
 	setType("Bullet");
+	setSolidness(df::SOFT);
 	df::Vector p(shooter_pos.getX(), shooter_pos.getY());
 	setPosition(p);
 	setSpeed(1);

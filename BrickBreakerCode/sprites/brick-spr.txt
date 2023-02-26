@@ -4,12 +4,13 @@ width 8
 height 4
 color yellow
 slowdown 1
+transparency a
 </HEADER>
 <BODY>
- ______
-|      |
-|      |
-|______| 
+a______a
+|aaaaaa|
+|aaaaaa|
+|______|
 end
 </BODY>
 <FOOTER>

@@ -6,7 +6,7 @@ private:
 	int hitpoints;
 	void moveDown();
 public:
-	Brick(int start_col);
+	Brick();
 	int eventHandler(const df::Event* p_e) override;
 	void hit(const df::EventCollision* p_c);
 	//~Brick();

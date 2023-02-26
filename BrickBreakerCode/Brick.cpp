@@ -1,6 +1,11 @@
+//temporary code
+
 #include "Brick.h"
 #include "EventTurn.h"
 #include "WorldManager.h"
+#include <stdlib.h>
+#include "DisplayManager.h"
+#include "LogManager.h"
 
 int Brick::eventHandler(const df::Event* p_e) {
     if (p_e->getType() == df::COLLISION_EVENT) {
@@ -14,17 +19,28 @@ int Brick::eventHandler(const df::Event* p_e) {
     return(0);
 }
 
+void Brick::moveDown() {
+    //
+}
+
 void Brick::hit(const df::EventCollision* p_c) {
     if ((p_c->getObject1()->getType() == "Bullet") || (p_c->getObject2()->getType() == "Bullet")) {
         hitpoints--;
     }
-    if (hitpoints == 0)
+    if (hitpoints == 0) {
+        new Brick;
         WM.markForDelete(this);
+    }
 }
 
-Brick::Brick(int start_col) {
+Brick::Brick() {
     setType("Brick");
     setSprite("brick");
     registerInterest(TURN_EVENT);
-    hitpoints = 0;
+    hitpoints = 1;
+    df::Vector v((rand()%(int)5)*10, 10);
+    //df::Vector v(25, 25);
+    //df::Vector e(10, 10);
+    setPosition(v);
+    //LM.writeLog("drawch success %d", DM.drawCh(e, '1', df::GREEN));
 }

@@ -10,6 +10,8 @@
 #include "WorldManager.h"
 #include "Windows.h"
 #include "ResourceManager.h"
+#include "Brick.h"
+#include "DisplayManager.h"
 
 void startUp();
 
@@ -41,6 +43,6 @@ int main(int argc, char* argv[]) {
 
 void startUp() {
     new Shooter;
+    new Brick;
     GM.run();
-    Sleep(1000);
 }
