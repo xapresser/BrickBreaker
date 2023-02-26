@@ -403,18 +403,3 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio
-*.vsidx
-BrickBreakerCode/.vs/BrickBreakerCode/v17/.suo
-*.db
-*.ipch
-*.tlog
-*.pdb
-*.idb
-*.obj
-*.log
-*.ilk
-*.log
-*.filters
-*.vcxproj
-BrickBreakerCode/.vs/BrickBreakerCode/v17/.suo
-*.db
