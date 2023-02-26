@@ -25,7 +25,7 @@ void Brick::moveDown() {
     v.setY(v.getY() + 4);
     WM.moveObject(this, v);
     WM.moveObject(hp, v);
-    newRow();
+    //newRow();
     if (v.getY() > 45) {
        //end game you die call gameover class here later once have that set up
     }
@@ -88,4 +88,12 @@ Brick::Brick(df::Vector v) {
     hp = new Hitpoints(1);
     setPosition(v);
     hp->setPosition(v);
+}
+
+Brick::Brick(int health) {
+    setType("Brick");
+    setSprite("brick");
+    registerInterest(TURN_EVENT);
+    hp = new Hitpoints(health);
+    moveToStart();
 }

@@ -13,6 +13,7 @@
 #include "Brick.h"
 #include "DisplayManager.h"
 #include "Points.h"
+#include "Spawner.h"
 
 void startUp();
 
@@ -44,12 +45,8 @@ int main(int argc, char* argv[]) {
 
 void startUp() {
     new Shooter;
-    new Brick;
-    new Brick;
-    new Brick;
-    new Brick;
-    new Brick;
-    new Brick;
     new Points;
+    Spawner* s = new Spawner();
+    s->start();
     GM.run();
 }

@@ -11,6 +11,7 @@ private:
 public:
 	Brick();
 	Brick(df::Vector v);
+	Brick(int health);
 	int eventHandler(const df::Event* p_e) override;
 	void hit(const df::EventCollision* p_c);
 	~Brick();
