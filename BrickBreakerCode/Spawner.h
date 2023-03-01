@@ -8,4 +8,5 @@ public:
 	void start();
 	int eventHandler(const df::Event* p_e) override;
 	void newRow();
+	void fillBoard();
 };

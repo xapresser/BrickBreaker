@@ -42,10 +42,11 @@ void Brick::newRow() {
 
 void Brick::moveToStart() {
     //7 slots in a row where a brick can generate
-    //at x position 4, 12, 20, 28, 36, 44, or 52
+    //at x position 4, 13, 22, 31, 40, 49, or 58
     //bricks always start at y position 1
-    df::Vector v(((rand() % (int)7) * 8) + 4, 1);
-    WM.moveObject(this, v);
+    df::Vector v(((rand() % (int)7) * 9) + 4, 1);
+    setPosition(v);
+    //WM.moveObject(this, v);
 
     //checks for overlap with other bricks
     df::ObjectList collision_list = WM.getCollisions(this, v);
@@ -53,7 +54,8 @@ void Brick::moveToStart() {
         WM.markForDelete(this);
 
     //moves the hitpoints number
-    WM.moveObject(hp, v);
+    hp->setPosition(v);
+    //WM.moveObject(hp, v);
 }
 
 void Brick::hit(const df::EventCollision* p_c) {
@@ -86,8 +88,26 @@ Brick::Brick(df::Vector v) {
     setSprite("brick");
     registerInterest(TURN_EVENT);
     hp = new Hitpoints(1);
+    //df::Vector temp_pos = v;
     setPosition(v);
+    //WM.moveObject(this, v);
     hp->setPosition(v);
+    df::ObjectList collision_list = WM.getCollisions(this, v);
+    df::ObjectListIterator li(&collision_list);
+    while (!li.isDone()) {
+        if (li.currentObject()->getPosition()==getPosition()&&li.currentObject()->getType()=="Brick") {
+            WM.markForDelete(this);
+        }
+        li.next();
+    }
+    /*if (!collision_list.isEmpty()) {
+        char test[] = "jsdlk";
+        //test=li.currentObject()->getType().c_str();
+        LM.writeLog("%s", test);
+        WM.markForDelete(this);
+        LM.writeLog("deletaroo");
+        //LM.writeLog("%d and %d", v.getX(), v.getY());
+    }*/
 }
 
 Brick::Brick(int health) {
