@@ -22,14 +22,38 @@ void Bullet::hit(const df::EventCollision* p_c) {
 		}*/
 
 		//if collision is diff y than bullet, means hitting smthing above or below so should change y direction of velocity
-		if (p_c->getPosition().getY() != getDirection().getY()) {
-			verticalBounce();
+		//LM.writeLog("collision x: %d, c y: %d",(int)p_c->getPosition().getX(), (int)p_c->getPosition().getY());
+		//LM.writeLog("pos x: %d, pos y: %d", (int)getPosition().getX(), (int)getPosition().getY());
+		
+		/*LM.writeLog("collision x: %f, c y: %f", p_c->getPosition().getX(), p_c->getPosition().getY());
+		LM.writeLog("pos x: %f, pos y: %f", getPosition().getX(), getPosition().getY());
+		LM.writeLog("direction x: %f, y: %f", getDirection().getX(), getDirection().getY());
+		if ((p_c->getPosition().getY()) != getPosition().getY()) {
+			df::Vector v = getDirection();
+			float y = v.getY();
+			v.setY(abs(p_c->getPosition().getY() - getPosition().getY()) * -1 * y);
+			setDirection(v);
+			LM.writeLog("vertical: %f", abs(p_c->getPosition().getY() - getPosition().getY()));
 		}
 
 		//if collision is diff x than bullet, means hitting smthing left or right so should change x direction of velocity
-		if (p_c->getPosition().getX() != getDirection().getX()) {
+		if ((p_c->getPosition().getX()) != getPosition().getX()) {
+			df::Vector v = getDirection();
+			float x = v.getX();
+			v.setX(abs(p_c->getPosition().getX() - getPosition().getX()) * -1 * x);
+			setDirection(v);
+			LM.writeLog("horizontal: %f", abs(p_c->getPosition().getX() - getPosition().getX()));
+		}*/
+		LM.writeLog("hit");
+		if ((int)(p_c->getPosition().getX()) != (int)getPosition().getX()) {
+			LM.writeLog("horizontal");
 			horizontalBounce();
 		}
+		if ((int)(p_c->getPosition().getY()) != (int)getPosition().getY()) {
+			LM.writeLog("vertical");
+			verticalBounce();
+		}
+
 	}
 }
 
@@ -50,7 +74,7 @@ void Bullet::verticalBounce() {
 int Bullet::eventHandler(const df::Event* p_e) {
 	if (p_e->getType() == df::OUT_EVENT) {
 		df::Vector v = getPosition();
-
+		//LM.writeLog("out");
 		//if hitting left or right side of screen
 		if (v.getX() > DM.getHorizontal() || v.getX() < 0)
 			horizontalBounce();
@@ -91,5 +115,5 @@ Bullet::Bullet(df::Vector shooter_pos) {
 	df::Vector p(shooter_pos.getX(), shooter_pos.getY());
 	setPosition(p);
 	setSpeed(2);
-	LM.writeLog("bullet");
+	//LM.writeLog("bullet");
 }

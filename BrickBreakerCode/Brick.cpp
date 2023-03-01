@@ -23,8 +23,10 @@ int Brick::eventHandler(const df::Event* p_e) {
 void Brick::moveDown() {
     df::Vector v = getPosition();
     v.setY(v.getY() + 4);
-    WM.moveObject(this, v);
-    WM.moveObject(hp, v);
+    setPosition(v);
+    hp->setPosition(v);
+    //WM.moveObject(this, v);
+    //WM.moveObject(hp, v);
     //newRow();
     if (v.getY() > 45) {
        //end game you die call gameover class here later once have that set up

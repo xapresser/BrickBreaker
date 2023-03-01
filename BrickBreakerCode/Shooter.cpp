@@ -74,5 +74,5 @@ Shooter::Shooter() {
 	setPosition(p);
 	p_reticle = new Reticle();
 	p_reticle->draw();
-	LM.writeLog("shooter spawned in");
+	//LM.writeLog("shooter spawned in");
 }
