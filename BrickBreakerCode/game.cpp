@@ -15,15 +15,32 @@
 #include "Points.h"
 #include "Spawner.h"
 #include "GameStart.h"
+#include "Pause.h"
 
-void startUp();
+//void startUp();
 // Function prototypes.
-void loadResources(void);
-void populateWorld(void);
+//void loadResources(void);
+//void populateWorld(void);
 
-int main(int argc, char* argv[]) 
+
+void loadResources(void)
 {
+    RM.loadSprite("sprites/ship-spr.txt", "ship");
+    RM.loadSprite("sprites/bullet-spr.txt", "ball");
+    RM.loadSprite("sprites/brick-spr.txt", "brick");
 
+    //to load the game start sprites
+    RM.loadSprite("sprites/gamestart-spr.txt", "gamestart");
+}
+
+void populateWorld(void) {
+    // to load music for the game
+    RM.loadMusic("sounds/start-music.wav", "start music");
+    // Create GameStart object.
+    new GameStart();
+}
+
+int main(int argc, char* argv[]) {
     // Start up game manager.
     if (GM.startUp()) {
         LM.writeLog("Error starting game manager!");
@@ -42,31 +59,15 @@ int main(int argc, char* argv[])
 
     // Populate game world with some objects.
     populateWorld();
-    
- 
+    //new df::Pause(df::Keyboard::F10);
     // Run game (this blocks until game loop is over).
     GM.run();
    
-    startUp();
+    //startUp();
 
     // Shut everything down.
     GM.shutDown();
     return 0;
-}
-void loadResources(void)
-{
-    RM.loadSprite("sprites/ship-spr.txt", "ship");
-    RM.loadSprite("sprites/bullet-spr.txt", "ball");
-    RM.loadSprite("sprites/brick-spr.txt", "brick");
-
-    //to load the game start sprites
-    RM.loadSprite("sprites/gamestart-spr.txt", "gamestart");
-
-    // to load music for the game
-    RM.loadMusic("sounds/start-music.wav", "start music");
-
-
-
 }
 
 
@@ -77,10 +78,4 @@ void startUp()
     Spawner* s = new Spawner();
     s->start();
     GM.run();
-}
-
-void populateWorld(void)
-{
-    // Create GameStart object.
-    new GameStart();
 }
