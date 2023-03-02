@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "DisplayManager.h"
 #include "LogManager.h"
+#include "GameOver.h"
 
 int Brick::eventHandler(const df::Event* p_e) {
     //if collision event, sends event to hit method to be handled
@@ -29,6 +30,7 @@ void Brick::moveDown() {
     //WM.moveObject(hp, v);
     //newRow();
     if (v.getY() > 45) {
+        new GameOver;
        //end game you die call gameover class here later once have that set up
     }
 }

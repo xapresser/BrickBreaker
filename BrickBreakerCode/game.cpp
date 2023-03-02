@@ -31,6 +31,7 @@ void loadResources(void)
 
     //to load the game start sprites
     RM.loadSprite("sprites/gamestart-spr.txt", "gamestart");
+    RM.loadSprite("sprites/gameover-spr.txt", "gameover");
 }
 
 void populateWorld(void) {
