@@ -6,11 +6,9 @@
 #include "Windows.h"
 #include "LogManager.h"
 #include "EventStep.h"
-<<<<<<< HEAD
-#include "ResourceManager.h"
-=======
 #include "GameOver.h"
->>>>>>> 08e5d6f88ffe82ba40d87536dcd6ca2038320d4d
+#include "ResourceManager.h"
+
 
 void Shooter::mouse(const df::EventMouse* p_mouse_event) {
 	if ((p_mouse_event->getMouseAction() == df::CLICKED) && (p_mouse_event->getMouseButton() == df::Mouse::LEFT)) {

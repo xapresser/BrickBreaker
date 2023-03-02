@@ -4,12 +4,9 @@
 #include <stdlib.h>
 #include "DisplayManager.h"
 #include "LogManager.h"
-<<<<<<< HEAD
 #include "ResourceManager.h"
 #include "Explosion.h"
-=======
 #include "GameOver.h"
->>>>>>> 08e5d6f88ffe82ba40d87536dcd6ca2038320d4d
 
 int Brick::eventHandler(const df::Event* p_e) {
     //if collision event, sends event to hit method to be handled
