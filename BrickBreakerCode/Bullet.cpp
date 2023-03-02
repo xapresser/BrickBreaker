@@ -4,6 +4,7 @@
 #include "WorldManager.h"
 #include "EventTurn.h"
 #include "EventView.h"
+#include "ResourceManager.h"
 
 void Bullet::hit(const df::EventCollision* p_c) {
 	//if object colliding with is brick (bounces for when colliding with edge of screen are handled by OUT_EVENT in eventhandler
@@ -38,6 +39,11 @@ void Bullet::horizontalBounce() {
 	float x = v.getX();
 	v.setX(x * -1);
 	setDirection(v);
+
+	// Play fire sound
+	df::Sound* p_sound = RM.getSound("bounce");
+	if (p_sound)
+		p_sound->play();
 }
 
 void Bullet::verticalBounce() {
@@ -45,6 +51,12 @@ void Bullet::verticalBounce() {
 	float y = v.getY();
 	v.setY(y * -1);
 	setDirection(v);
+
+	// Play fire sound
+	df::Sound* p_sound = RM.getSound("bounce");
+	if (p_sound)
+		p_sound->play();
+
 }
 
 int Bullet::eventHandler(const df::Event* p_e) {
@@ -84,7 +96,8 @@ Bullet::~Bullet() {
 	}
 }
 
-Bullet::Bullet(df::Vector shooter_pos) {
+Bullet::Bullet(df::Vector shooter_pos) 
+{
 	setSprite("ball");
 	setType("Bullet");
 	setSolidness(df::SOFT);

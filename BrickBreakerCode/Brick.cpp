@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include "DisplayManager.h"
 #include "LogManager.h"
+#include "ResourceManager.h"
+#include "Explosion.h"
 
 int Brick::eventHandler(const df::Event* p_e) {
     //if collision event, sends event to hit method to be handled
@@ -60,13 +62,20 @@ void Brick::moveToStart() {
 
 void Brick::hit(const df::EventCollision* p_c) {
     //takes 1 damage per bullet hit by
-    if ((p_c->getObject1()->getType() == "Bullet") || (p_c->getObject2()->getType() == "Bullet")) {
+    if ((p_c->getObject1()->getType() == "Bullet") || (p_c->getObject2()->getType() == "Bullet")) 
+    {
         hp->setValue(hp->getValue() - 1);
     }
 
     //when hitpoints are 0, brick is destroyed
-    if (hp->getValue() == 0) {
+    if (hp->getValue() == 0) 
+    {
+        // Create explosion.
+        Explosion* p_explosion = new Explosion;
+        p_explosion->setPosition(this->getPosition());
+
         WM.markForDelete(this);
+
     }
 }
 

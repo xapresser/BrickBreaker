@@ -6,6 +6,7 @@
 #include "Windows.h"
 #include "LogManager.h"
 #include "EventStep.h"
+#include "ResourceManager.h"
 
 void Shooter::mouse(const df::EventMouse* p_mouse_event) {
 	if ((p_mouse_event->getMouseAction() == df::CLICKED) && (p_mouse_event->getMouseButton() == df::Mouse::LEFT)) {
@@ -26,6 +27,11 @@ void Shooter::fire() {
 				Bullet* p = new Bullet(getPosition());
 				p->setVelocity(v);
 				shotBullets++;
+
+				// Play fire sound
+				df::Sound* p_sound = RM.getSound("fire");
+				if (p_sound)
+					p_sound->play();
 			}
 			else {
 				isFiring = false;
@@ -33,6 +39,7 @@ void Shooter::fire() {
 			fire_countdown = fire_cooldown;
 		}
 	}
+
 }
 
 void Shooter::nextTurn() {

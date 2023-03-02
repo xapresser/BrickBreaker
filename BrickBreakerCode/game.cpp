@@ -31,6 +31,11 @@ void loadResources(void)
 
     //to load the game start sprites
     RM.loadSprite("sprites/gamestart-spr.txt", "gamestart");
+
+    // to load the explosion sprites
+    RM.loadSprite("sprites/explosion-spr.txt", "explosion");
+
+ 
 }
 
 void populateWorld(void) {
@@ -38,6 +43,12 @@ void populateWorld(void) {
     RM.loadMusic("sounds/start-music.wav", "start music");
     // Create GameStart object.
     new GameStart();
+
+    // to load the fire sound
+    RM.loadSound("sounds/fire.wav", "fire");
+
+    // to load the fire sound
+    RM.loadSound("sounds/bounce.wav", "bounce");
 }
 
 int main(int argc, char* argv[]) {
