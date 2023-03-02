@@ -4,8 +4,12 @@
 #include <stdlib.h>
 #include "DisplayManager.h"
 #include "LogManager.h"
+<<<<<<< HEAD
 #include "ResourceManager.h"
 #include "Explosion.h"
+=======
+#include "GameOver.h"
+>>>>>>> 08e5d6f88ffe82ba40d87536dcd6ca2038320d4d
 
 int Brick::eventHandler(const df::Event* p_e) {
     //if collision event, sends event to hit method to be handled
@@ -25,10 +29,13 @@ int Brick::eventHandler(const df::Event* p_e) {
 void Brick::moveDown() {
     df::Vector v = getPosition();
     v.setY(v.getY() + 4);
-    WM.moveObject(this, v);
-    WM.moveObject(hp, v);
+    setPosition(v);
+    hp->setPosition(v);
+    //WM.moveObject(this, v);
+    //WM.moveObject(hp, v);
     //newRow();
     if (v.getY() > 45) {
+        new GameOver;
        //end game you die call gameover class here later once have that set up
     }
 }

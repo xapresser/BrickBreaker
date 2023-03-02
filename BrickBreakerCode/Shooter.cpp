@@ -6,7 +6,11 @@
 #include "Windows.h"
 #include "LogManager.h"
 #include "EventStep.h"
+<<<<<<< HEAD
 #include "ResourceManager.h"
+=======
+#include "GameOver.h"
+>>>>>>> 08e5d6f88ffe82ba40d87536dcd6ca2038320d4d
 
 void Shooter::mouse(const df::EventMouse* p_mouse_event) {
 	if ((p_mouse_event->getMouseAction() == df::CLICKED) && (p_mouse_event->getMouseButton() == df::Mouse::LEFT)) {
@@ -61,6 +65,17 @@ int Shooter::eventHandler(const df::Event* p_e) {
 		nextTurn();
 		return(1);
 	}
+	if (p_e->getType() == df::KEYBOARD_EVENT) {
+		df::EventKeyboard* p_keyboard_event = (df::EventKeyboard*)p_e;
+		switch (p_keyboard_event->getKey()) {
+		case df::Keyboard::Q:			// quit
+			new GameOver;
+			break;
+		default:
+			break;
+		}
+		return 1;
+	}
 	return(0);
 }
 
@@ -72,6 +87,7 @@ Shooter::Shooter() {
 	setSprite("ship");
 	registerInterest(df::STEP_EVENT);
 	registerInterest(TURN_EVENT);
+	registerInterest(df::KEYBOARD_EVENT);
 	bullets = 1;
 	shotBullets = 0;
 	fire_cooldown = 5;
@@ -81,5 +97,5 @@ Shooter::Shooter() {
 	setPosition(p);
 	p_reticle = new Reticle();
 	p_reticle->draw();
-	LM.writeLog("shooter spawned in");
+	//LM.writeLog("shooter spawned in");
 }

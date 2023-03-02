@@ -58,8 +58,9 @@ int GameStart::eventHandler(const df::Event* p_e) {
 
 void GameStart::start() {
     new Shooter;
-    new Spawner;
+    Spawner* s = new Spawner;
     new Points;
+    s->start();
 
     // Pause start music.
     p_music->pause();

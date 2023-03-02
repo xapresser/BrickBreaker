@@ -6,8 +6,7 @@
 //necessary bcz if clear board wont be able to make new row
 
 void Spawner::start() {
-    //newRow();
-    fillBoard();
+    newRow();
 }
 
 int Spawner::eventHandler(const df::Event* p_e) {
