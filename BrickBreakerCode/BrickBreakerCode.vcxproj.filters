@@ -52,9 +52,4 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Explosion.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-  </ItemGroup>
 </Project>

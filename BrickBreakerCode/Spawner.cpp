@@ -7,6 +7,7 @@
 
 void Spawner::start() {
     newRow();
+    //fillBoard();
 }
 
 int Spawner::eventHandler(const df::Event* p_e) {

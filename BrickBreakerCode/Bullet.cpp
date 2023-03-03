@@ -5,6 +5,7 @@
 #include "EventTurn.h"
 #include "EventView.h"
 #include "ResourceManager.h"
+#include "EventStep.h"
 
 void Bullet::hit(const df::EventCollision* p_c) {
 	//if object colliding with is brick (bounces for when colliding with edge of screen are handled by OUT_EVENT in eventhandler
@@ -46,15 +47,16 @@ void Bullet::hit(const df::EventCollision* p_c) {
 			LM.writeLog("horizontal: %f", abs(p_c->getPosition().getX() - getPosition().getX()));
 		}*/
 		LM.writeLog("hit");
-		if ((int)(p_c->getPosition().getX()) != (int)getPosition().getX()) {
-			LM.writeLog("horizontal");
-			horizontalBounce();
+		if (!isColliding) {
+			if ((int)(p_c->getPosition().getX()) != (int)getPosition().getX()) {
+				LM.writeLog("horizontal");
+				horizontalBounce();
+			}
+			if ((int)(p_c->getPosition().getY()) != (int)getPosition().getY()) {
+				LM.writeLog("vertical");
+				verticalBounce();
+			}
 		}
-		if ((int)(p_c->getPosition().getY()) != (int)getPosition().getY()) {
-			LM.writeLog("vertical");
-			verticalBounce();
-		}
-
 	}
 }
 
@@ -105,6 +107,16 @@ int Bullet::eventHandler(const df::Event* p_e) {
 		hit(p_collision_event);
 		return(1);
 	}
+	if (p_e->getType() == df::STEP_EVENT) {
+		if (isColliding) {
+			colliding--;
+			if (colliding <= 0) {
+				colliding = 5;
+				isColliding = false;
+			}
+		}
+		return(1);
+	}
 	return(0);
 }
 
@@ -125,8 +137,10 @@ Bullet::Bullet(df::Vector shooter_pos)
 	setSprite("ball");
 	setType("Bullet");
 	setSolidness(df::SOFT);
+	registerInterest(df::STEP_EVENT);
 	df::Vector p(shooter_pos.getX(), shooter_pos.getY());
 	setPosition(p);
 	setSpeed(2);
+	colliding = 5;
 	//LM.writeLog("bullet");
 }

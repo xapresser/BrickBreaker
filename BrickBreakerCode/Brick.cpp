@@ -56,8 +56,13 @@ void Brick::moveToStart() {
 
     //checks for overlap with other bricks
     df::ObjectList collision_list = WM.getCollisions(this, v);
-    if (!collision_list.isEmpty())
-        WM.markForDelete(this);
+    df::ObjectListIterator li(&collision_list);
+    while (!li.isDone()) {
+        if (li.currentObject()->getPosition() == getPosition() && li.currentObject()->getType() == "Brick") {
+            WM.markForDelete(this);
+        }
+        li.next();
+    }
 
     //moves the hitpoints number
     hp->setPosition(v);
